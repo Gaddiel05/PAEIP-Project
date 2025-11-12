@@ -1,0 +1,34 @@
+<!-- templates/base.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>PAEI Platform</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <a class="logo" href="{{ url_for('home') }}">PAEI Platform</a>
+      <nav>
+        {% if user %}
+          <span>Welcome, {{ user.name }}</span>
+          <a href="{{ url_for('dashboard') }}">Dashboard</a>
+          <a href="{{ url_for('signout') }}">Sign out</a>
+        {% else %}
+          <a href="{{ url_for('signin') }}">Sign in</a>
+          <a href="{{ url_for('signup') }}">Sign up</a>
+        {% endif %}
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="footer">
+    <div class="container">© PAEI Platform</div>
+  </footer>
+</body>
+</html>

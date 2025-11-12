@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Pan-African Economic Intelligence Platform</h1>
+  <h2>Description</h2>
+
+  <p>The Pan-African Economic Intelligence (PAEI) Platform is a data-driven ecosystem designed to empower policymakers, 
+    researchers, and entrepreneurs with reliable insights into Africa’s economic landscape. 
+    By centralizing real-time data, analytics, and visualization tools, the platform enhances decision-making, 
+    fosters regional integration, and supports evidence-based policies.</p>
+  <p>PAEI bridges the gap between economic data and actionable intelligence, enabling users 
+    to explore trends, identify opportunities, and address challenges across key sectors such as trade, 
+    finance, agriculture, and technology for sustainable growth across the African continent.</p>
+
+  <p>Login to see the dashboard.</p>
+  <p><a class="btn" href="{{ url_for('dashboard') }}">Open Dashboard</a></p>
+{% endblock %}

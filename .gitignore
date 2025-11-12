@@ -1,0 +1,44 @@
+# --- Python general ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+.Python
+.env
+venv/
+ENV/
+env/
+.venv/
+
+# --- Byte-compiled / cache ---
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.db-journal
+
+# --- SQLite database ---
+*.db
+
+# --- OS files ---
+.DS_Store
+Thumbs.db
+
+# --- IDE / Editor files ---
+.vscode/
+.idea/
+*.iml
+
+# --- Flask specific ---
+instance/
+*.pid
+
+# --- Distribution / packaging ---
+build/
+dist/
+*.tar.gz
+*.zip

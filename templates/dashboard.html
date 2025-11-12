@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Dashboard</h2>
+
+  <div class="filters">
+    <label>Country
+      <select id="countrySelect"></select>
+    </label>
+    <label>Year
+      <select id="yearSelect">
+        <option value="">All</option>
+      </select>
+    </label>
+    <button id="refreshBtn">Refresh</button>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div id="kpi_nominalGDP">--</div><small>Nominal GDP (Millions USD)</small></div>
+    <div class="kpi"><div id="kpi_fdi">--</div><small>FDI (Millions USD)</small></div>
+    <div class="kpi"><div id="kpi_unemployment">--</div><small>Unemployment rate (%)</small></div>
+    <div class="kpi"><div id="kpi_inflation">--</div><small>Inflation (%)</small></div>
+  </div>
+
+  <div class="charts-grid">
+    <div class="chart-card">
+      <h3>Population (millions)</h3>
+      <canvas id="chartPopulation"></canvas>
+    </div>
+
+    <div class="chart-card">
+      <h3>GDP Growth (%)</h3>
+      <canvas id="chartGDPGrowth"></canvas>
+    </div>
+  </div>
+  
+  <div class="kpis2">
+    <div class="kpi"><div id="kpi_imports">--</div><small>Imports (Millions USD)</small></div>
+    <div class="kpi"><div id="kpi_exports">--</div><small>Exports (Millions USD)</small></div>
+    <div class="kpi"><div id="kpi_ir">--</div><small>Interest rate (%)</small></div>
+  </div>
+
+  <div class="charts-grid">
+    <div class="chart-card">
+      <h3>Sectors share in GDP</h3>
+      <canvas id="chartSectors"></canvas>
+    </div>
+
+    <div class="chart-card">
+      <h3>Sectors share in Employment</h3>
+      <canvas id="chartEmployment"></canvas>
+    </div>
+
+    <div class="chart-card">
+      <h3>Imports (millions USD)</h3>
+      <canvas id="chartImports"></canvas>
+    </div>
+
+    <div class="chart-card">
+      <h3>Exports (millions USD)</h3>
+      <canvas id="chartExports"></canvas>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}
