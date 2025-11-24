@@ -4,6 +4,9 @@ import sqlite3
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
 
+if not os.path.exists("paei.db"):
+    import create_db
+
 DB_PATH = "paei.db"
 SECRET_KEY = "replace_this_with_a_strong_random_secret"
 
