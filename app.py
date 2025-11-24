@@ -108,6 +108,51 @@ def api_data():
     result = [dict(r) for r in rows]
     return jsonify(result)
 
+@app.route("/download")
+def download_page():
+    if not session.get('user'):
+        return redirect(url_for('signin'))
+    return render_template("download.html", user=session.get('user'))
+
+
+@app.route("/api/download_csv")
+def download_csv():
+    if not session.get('user'):
+        return redirect(url_for('signin'))
+
+    import csv
+    from io import StringIO
+    db = get_db()
+
+    # Fetch all data
+    rows = db.execute("SELECT * FROM metrics ORDER BY country, year").fetchall()
+    if not rows:
+        return "No data available", 404
+
+    # Convert SQLite rows → CSV using StringIO buffer
+    si = StringIO()
+    writer = csv.writer(si)
+
+    # Write header
+    writer.writerow(rows[0].keys())
+
+    # Write rows
+    for r in rows:
+        writer.writerow([r[k] for k in r.keys()])
+
+    output = si.getvalue()
+    si.close()
+
+    # Send file as download
+    from flask import Response
+    return Response(
+        output,
+        mimetype="text/csv",
+        headers={
+            "Content-Disposition": "attachment; filename=paei_data_export.csv"
+        }
+    )
+
 if __name__ == "__main__":
     if not os.path.exists(DB_PATH):
         print("Database not found. Run create_db.py first.")

@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Download Data Export</h2>
+
+<p>You can download the complete dataset used in the dashboard in CSV format.</p>
+
+<a class="btn" href="{{ url_for('download_csv') }}">Download CSV File</a>
+{% endblock %}
