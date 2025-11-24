@@ -83,11 +83,11 @@ All displayed as dynamic charts (Chart.js) and KPIs.
 
 ## 🛠 Installation & Setup
 
-1. **First option: Run the deployed version using:**
+### 1. First option: Run the deployed version using:
 ```
 https://paeip-dashboard.onrender.com
 ```
-2. **Second option: Clone and run the program locally**
+### 2. Second option: Clone and run the program locally
 
 1️⃣ **Clone the Project**
 ```
