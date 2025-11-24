@@ -90,16 +90,39 @@ cd paei_dashboard
 ```
 2️⃣ **Create and Activate a Virtual Environment**
 Mac/Linux:
-    ```
-    python3 -m venv venv
-    source venv/bin/activate
-    ```
+```
+python3 -m venv venv
+source venv/bin/activate
+```
 Windows:
 ```
 python -m venv venv
 venv\Scripts\activate
 ```
 
+3️⃣ **Install Dependencies**
+```
+pip install -r requirements.txt
+```
+> No need to install sqlite3 or json — they are included in Python’s standard library.
 
+4️⃣ **Create the Database**
+```
+python create_db.py
+```
 
+▶️ **Running the Application**
+Start the Flask server:
+```
+python app.py
+```
+Then open in the browser:
+```
+http://127.0.0.1:5000
+```
 
+## 📝 Authors
+Gaddiel Irakoze
+
+## License
+This project is for academic purposes and not intended for commercial use.
