@@ -1,11 +1,17 @@
 # app.py
+import os
+
+# Auto-create the database BEFORE Flask loads and uses it
+if not os.path.exists("paei.db"):
+    print("paei.db not found — creating it...")
+    import create_db
+    create_db.build_database()
+else:
+    print("Database exists.")
+
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify, g
 import sqlite3
 from werkzeug.security import generate_password_hash, check_password_hash
-import os
-
-if not os.path.exists("paei.db"):
-    import create_db
 
 DB_PATH = "paei.db"
 SECRET_KEY = "replace_this_with_a_strong_random_secret"
@@ -157,6 +163,4 @@ def download_csv():
     )
 
 if __name__ == "__main__":
-    if not os.path.exists(DB_PATH):
-        print("Database not found. Run create_db.py first.")
     app.run(debug=True, host="0.0.0.0", port=5000)

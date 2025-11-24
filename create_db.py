@@ -119,9 +119,12 @@ def create_sample_user(conn, c):
     except Exception as e:
         print("Sample user creation failed:", e)
 
-if __name__ == "__main__":
+def build_database():
     conn, c = ensure_db()
     load_json_and_insert(conn, c)
     create_sample_user(conn, c)
     conn.close()
     print("Database created at paei.db using", JSON_PATH)
+
+if __name__ == "__main__":
+    build_database()
